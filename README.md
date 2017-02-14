@@ -169,7 +169,15 @@ Then:
 Then define file:
 
 ```js
-//modles.bears.js
+var mongoose = require('mongoose');
+
+var BearSchema = new mongoose.Schema({
+  name: String,
+  color: String,
+  species: String,
+})
+
+module.exports = mongoose.model('Bear', BearSchema)
 ```
 
 Lastly, import this file into `server.js`:
@@ -233,3 +241,7 @@ Next we will use __Postman__ to test these two endpoints. Test your `GET` method
 Then test the `POST` route (don't forget to select the URL encoded option).
 
 After you create a couple of items, test your `GET` method again.
+
+When your endpoints are working, commit your code.
+
+----
