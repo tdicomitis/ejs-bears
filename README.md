@@ -175,7 +175,7 @@ var BearSchema = new mongoose.Schema({
   name: String,
   color: String,
   species: String,
-})
+});
 
 module.exports = mongoose.model('Bear', BearSchema)
 ```
@@ -245,3 +245,69 @@ After you create a couple of items, test your `GET` method again.
 When your endpoints are working, commit your code.
 
 ----
+
+###Step Three: Finish API endpoints that use `bear_id`
+
+When you create a new onject on Mongo, it gives that objec ta new id.
+
+For example:
+```js
+var teddy = new Bear ({name: "Teddy"})
+console.log(teddy._id);
+```
+
+These unique IDs are extremely important in programming. When we do actions such as edit, or delete, they are being imposed on exactly one item. We need to make sure we are changing the item of intention.
+
+The `GET` and `DELETE` methods are pretty straightforward.
+
+```js
+app.get('/api/bears/:bear_id', function(req, res){
+  Bear.findById(req.params.bear_id, function(err, data){
+    if(err){
+      console.log("err"){
+      } else {
+        res.json(data)
+    }
+  });
+});
+
+app.delete('/api/bears/:bear_id', function(req, res){
+  Bear.remove({ _id: =req.params.bear_id }, function (err){
+    if(err){
+      console.log(err)
+    } else {
+      res.json({ message: "Successfully deleted the bear"})
+    }
+  });
+});
+```
+
+The `PUT` route will be slightly more complicated. We will need to first find the specific bear we are looking for.
+
+Once we have our bear we only want to update the properties that receive new data. If there is no new data, it just uses the old data. Hence the ternaries:
+
+Ternarie is a single line 'if' statement:
+
+```js
+app.put('/api/bears/:bear_id', function(req, res){
+  Bear.findById(req.params.bear_id, function(err, bear){
+    if(err){
+      console.log(err)
+    } else {
+      bear.name = req.body.name ? req.body.name : bear.name;
+      bear.species = req.body.species ? req.body.species : bear.species;
+      bear.color = req.body.color ? req.body.color : bear.color;
+
+      bear.save(function(er, updatedBear){
+        if(er){
+          console.log(er)
+        } else {
+          res.json(updatedBear);
+        }
+      });
+
+    }
+  });
+});
+```
+Make sure you test all of your routes before committing your code.
