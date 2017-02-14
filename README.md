@@ -65,11 +65,32 @@ app.get('/bears', function(req, res) {
       }else{
       res.json(bear)
     }
-   }):
- ```
+  });
+```
 
-### tools
+#### Implementation
 
-### commit our changes over time
+### Step 0: Project Setup
+
+We will being by creating a basic server configured with express, ejs, and body parser.
+
+`touch server.js`
+
+`npm init` -> hit enter to accept defaults
+
+We do not want to keep track of our node modules in GitHub, so we will tell git to ignore all these fiels.
+
+`echo " node_modules/" >> .gitignore`
+
+`npm install --save express body-parser ejs`
+
+After you run install, make sure you look at `package.json` to see if your dependencies were updated.
+
+Configure your server to create a basic express server, tel it to use the view engine ejs, and apply the body-parser middleware to your application.
+
+```js
+//TODO
+
+
 
 ___Learning to Node, Mongo, Mongoose, Express, and EJS___
