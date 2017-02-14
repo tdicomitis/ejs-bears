@@ -97,10 +97,39 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 app.set('view engine', 'ejs');
 
-
 var server = app.listen(3000, function() {
   console.log('Server 🔥🔥🔥ed up on PORT 3000')
 });
 ```
 
-Ensure that your is functional before committing  your code: 
+Ensure that it is functional before committing  your code: `nodemon server.js`
+
+----
+
+### Step One: EJS pages
+
+In this set up we will make the appropriate EJS files, and make routes to serve these files.
+
+Remember that EJS pages much live in the views folder, create pages for index, view and post.
+
+`mkdir views`
+
+`touch views/index.ejs touch views/view.ejs touch views/post.ejs `
+
+Update each EJS page to have a basic HTML implementation. In `view.ejs` add some HTML for an unordered list. THis is wher eour bears will eventually go. In `post.ejs` add a basic HTML form with input fields for bear name, species, and color.
+
+Next we will define our routes that are responsible for serving each on of our ejs pages.
+
+```js
+app.get('/', function(req, res){
+  res.render('index');
+});
+app.get('/view', function(req, res){
+  res.render('view');
+});
+app.get('/post', function(req, res){
+  res.render('post');
+});
+```
+
+Make sure you test your endpoints before committing your code.
