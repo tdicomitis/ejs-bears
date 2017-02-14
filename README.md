@@ -89,8 +89,18 @@ After you run install, make sure you look at `package.json` to see if your depen
 Configure your server to create a basic express server, tel it to use the view engine ejs, and apply the body-parser middleware to your application.
 
 ```js
-//TODO
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true}));
+app.set('view engine', 'ejs');
 
 
+var server = app.listen(3000, function() {
+  console.log('Server 🔥🔥🔥ed up on PORT 3000')
+});
+```
 
-___Learning to Node, Mongo, Mongoose, Express, and EJS___
+Ensure that your is functional before committing  your code: 
