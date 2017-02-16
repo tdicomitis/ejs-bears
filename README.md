@@ -313,6 +313,32 @@ app.put('/api/bears/:bear_id', function(req, res){
 ```
 Make sure you test all of your routes before committing your code.
 
+----
+
+### Refactoring server.js
+
+Server.js is cluttered and should only have configuration code, meaning we need to store code for our 'Bears' route in another file.
+
+Steps:
+
+1) Make a new directory called routes:
+
+_mkdir routes_
+
+2) Make a file in routes called `bears.js`:
+
+_touch routes/bear.js_
+
+3) Move all bear related code into the new js
+
+4) Then we need to require our newly made file in `server.js`:
+
+`var bearRouter = require('./routes/bears');`
+
+5) Tell our application to use these routes:
+
+`module.exports = Router`
+
 #### Steps to implement a new resource
 
 1) Need a new schema (don't forget to require schema in routes file)
