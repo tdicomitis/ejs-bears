@@ -1,13 +1,13 @@
 #### EJS Bears
 
 ### Description
-We are going to build an application which uses EJS to render different pages. The pages will be displaying 'bears'.
+We are going to build an application which uses EJS (embedded javascript, that allows us to view javascript in our html pages) to render different pages. The pages will be displaying 'bears'.
 For example:
 
 UI Routes:
 / => Home route, renders index.ejs
 /viewBears => Will render an EJS page that displays all bears.
-/post => this will render a form capable of creating a new bear.
+/post => Will render a form capable of creating a new bear.
 
 #### Introducing MongoDB
 
@@ -25,16 +25,17 @@ UI Routes:
 
 ----
 
-MongoDB is a non-relational database. it is really nice for javascript developers because it stores data in formats that we are used to working with. A single piece of data is known as a document. In our application here is what a document will look like:
+MongoDB is a non-relational database. It is really nice for javascript developers because it stores data in formats that we are used to working with. A single piece of data is known as a document. In our application here is what a document will look like:
 
 ```js
 var someBear = {
-name: "Winnie The Pooh",
-species: "Honey Bear",
-color: "Golden Brown"
+  "name": "Winnie The Pooh",
+  "species": "Honey Bear",
+  "color": "Golden Brown"
 }
 ```
 The above is a single document, a bunch of these documents, or bears, is known as a collection. A collection is just an array full of objects.
+
 ```js
 var allBears = [someBear, anotherBear, moreBear]
 ```
@@ -311,3 +312,14 @@ app.put('/api/bears/:bear_id', function(req, res){
 });
 ```
 Make sure you test all of your routes before committing your code.
+
+#### Steps to implement a new resource
+
+1) Need a new schema (don't forget to require schema in routes file)
+
+Example of a schema:
+`var Bear = require('./models/bear');`
+
+2) Implement API c.r.u.d routes to expose our resource to our application
+
+3) Test the routes with postman, when they are working, do EJS stuff
