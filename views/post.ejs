@@ -17,19 +17,20 @@
 
     <div class="row">
       <div class="col-xs-10">
-        <form action="">
+        <form action="/api/bears" method="post">
             <fieldset class="form-group">
               <label>Bear Name</label>
-              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="enter the name of bear">
+              <input type="text" class="form-control" name="name" placeholder="enter the name of bear">
             </fieldset>
             <fieldset class="form-group">
               <label for="formGroupExampleInput2">Bear Color</label>
-              <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="enter bear color">
+              <input type="text" class="form-control" name="color" placeholder="enter bear color">
             </fieldset>
             <fieldset class="form-group">
               <label>Bear Species</label>
-              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="enter species of bear">
+              <input type="text" class="form-control" name="species" placeholder="enter species of bear">
             </fieldset>
+            <button type="submit">Submit</button>
           </form>
       </div>
     </div>

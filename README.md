@@ -371,3 +371,21 @@ On our `view.ejs` page we need to pass in a value, to render bears:
 ```html
 <%= bears %>
 ```
+
+#### EJS post bear format
+
+In our <input><input/> tag we changed the `id` to `name` and then set it equal to all of our values(req.body)
+
+Ex: name="name" && name="color" && name="species"
+
+In our <form></form> tag:
+
+```html
+<form action="/api/bears" method="post">
+```
+Added a button, so we cold submit our data, below the <fieldset></fieldset>
+
+```html  
+<button type="submit">Submit</button>
+```
+Last, we tested to make sure it worked. 
