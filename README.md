@@ -390,7 +390,7 @@ Added a button, so we cold submit our data, below the <fieldset></fieldset>
 ```
 Last, we tested to make sure it worked.
 
-####
+#### Add a for loop
 
 In our view.ejs page we made a for loop:
 
@@ -405,3 +405,39 @@ In our view.ejs page we made a for loop:
   </ul>
 </div>
 ```
+
+#### Delete a bear
+
+Created a new file called 'public':
+
+Then created a file called `app.js`
+
+In our `app.js` we added:
+
+```js
+$(document).ready(function(){
+  function deleteBear(e) {
+    e.preventDefault();
+    var bearId = $(this).attr('id');
+
+    $.ajax({
+      url: '/api/bears/' + bearId,
+      method: 'DELETE'
+    }).done(function(d){
+      console.log(d, "Successfully deleted bear");
+      window.location = "/view"
+    });
+  }
+
+  $(".deleteBtn").on('click', deleteBear)
+
+});
+```
+
+Then in our 'view.js' we added:
+
+```html
+<li><%= bears[i].name %>  <button id="<%= bears[i]._id %>" type="button" class="btn btn-danger deleteBtn">DELETE</li>
+```
+
+Then we tested to make sure we were successful.
