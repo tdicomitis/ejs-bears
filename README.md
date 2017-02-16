@@ -17,7 +17,7 @@ UI Routes:
 
 2) Make the database in locally:
 
-`mkdir =p /data/db` or `sudo mkdir =p /data/db`
+`mkdir -p /data/db` or `sudo mkdir -p /data/db`
 
 3) Run MongoDB locally:
 
