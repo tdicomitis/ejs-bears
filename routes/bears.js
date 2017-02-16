@@ -28,7 +28,6 @@ Router.post('/', function(req, res){
  })
 });
 
-//for example: /api/bears/58a5e47af4dd0202ff240a66
 Router.get('/:bear_id', function(req, res){
  Bear.findById(req.params.bear_id, function(err, data){
    if(err){
