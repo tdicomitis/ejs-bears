@@ -349,3 +349,25 @@ Example of a schema:
 2) Implement API c.r.u.d routes to expose our resource to our application
 
 3) Test the routes with postman, when they are working, do EJS stuff
+
+#### Giving an EJS page access to our data
+
+This gets our bear database and gives it a route and access to our EJS page:
+
+```js
+app.get('/view', function(req, res){
+  Bear.find(function(err, allBears){
+    if(err){
+      console.log(err)
+    } else {
+      res.render('view', {bears: allBears})
+    }
+  });
+});
+```
+
+On our `view.ejs` page we need to pass in a value, to render bears:
+
+```html
+<%= bears %>
+```
