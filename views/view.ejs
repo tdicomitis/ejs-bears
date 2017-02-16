@@ -13,7 +13,11 @@
     <div class="jumbotron">
       <h1>You have found the view page!</h1>
       <p>da bears</p>
-      <%= bears %>
+      <ul>
+        <% for(var i=0; i < bears.length; i++){ %>
+          <li><%= bears[i].name %> </li>
+        <% } %>
+      </ul>
     </div>
 
     <div class="row">

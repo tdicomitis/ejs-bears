@@ -388,4 +388,20 @@ Added a button, so we cold submit our data, below the <fieldset></fieldset>
 ```html  
 <button type="submit">Submit</button>
 ```
-Last, we tested to make sure it worked. 
+Last, we tested to make sure it worked.
+
+####
+
+In our view.ejs page we made a for loop:
+
+```html
+<div class="jumbotron">
+  <h1>You have found the view page!</h1>
+  <p>da bears</p>
+  <ul>
+    <% for(var i=0; i < bears.length; i++){ %>
+      <li><%= bears[i].name %> </li>
+    <% } %>
+  </ul>
+</div>
+```
